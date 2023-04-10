@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-//#include <QtGui>
+// #include <QtGui>
 #include <QApplication>
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -18,12 +18,12 @@ int main(int argc, char **argv)
 
 	QApplication app(argc, argv);
 	QGraphicsScene scene;
-	scene.setSceneRect(0,0, 300, 300);
-	while(iFile >> p1)
-		if (iFile >> p2)		//checks if even number of lines are there and we don't get an error
-			scene.addLine(QLineF(p1.x(),p1.y(),p2.x(),p2.y()));
+	scene.setSceneRect(0, 0, 300, 300);
+	while (iFile >> p1)
+		if (iFile >> p2) // checks if even number of lines are there and we don't get an error
+			scene.addLine(QLineF(p1.x(), p1.y(), p2.x(), p2.y()));
 
-	QGraphicsView* view = new QGraphicsView(&scene);
+	QGraphicsView *view = new QGraphicsView(&scene);
 	CGAL::Qt::GraphicsViewNavigation navigation;
 	view->installEventFilter(&navigation);
 	view->viewport()->installEventFilter(&navigation);
@@ -31,6 +31,3 @@ int main(int argc, char **argv)
 	view->show();
 	return app.exec();
 }
-
-
-

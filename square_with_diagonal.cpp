@@ -4,22 +4,21 @@
 #include <CGAL/Qt/GraphicsViewNavigation.h>
 #include <QLineF>
 #include <QRectF>
-#include <QApplication> 
+#include <QApplication>
 #include <QGraphicsScene>
-#include <QGraphicsView> 
+#include <QGraphicsView>
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-
     QGraphicsScene scene;
-    scene.setSceneRect(0,0, 200, 200);
-    scene.addRect(QRectF(0,0, 200, 200));
-    scene.addLine(QLineF(0,0, 200, 200));
-    scene.addLine(QLineF(0,200, 200, 0));
+    scene.setSceneRect(0, 0, 200, 200);
+    scene.addRect(QRectF(0, 0, 200, 200));
+    scene.addLine(QLineF(0, 0, 200, 200));
+    scene.addLine(QLineF(0, 200, 200, 0));
 
-    QGraphicsView* view = new QGraphicsView(&scene);
+    QGraphicsView *view = new QGraphicsView(&scene);
     CGAL::Qt::GraphicsViewNavigation navigation;
     view->installEventFilter(&navigation);
     view->viewport()->installEventFilter(&navigation);
@@ -28,4 +27,3 @@ int main(int argc, char **argv)
     view->show();
     return app.exec();
 }
-
